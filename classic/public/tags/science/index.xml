@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Science on JKP</title>
+    <link>/tags/science/</link>
+    <description>Recent content in Science on JKP</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/science/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bedload diffusion theory due to Einstein</title>
+      <link>/post/2019/07/05/bedload-diffusion-theory-due-to-einstein/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2019/07/05/bedload-diffusion-theory-due-to-einstein/</guid>
+      <description>Hans Albert Einstein was a civil engineer and the son of Albert Einstein, the famous physicist. In his PhD work before 1937, he performed a series of experiments tracking painted sediment through a model river [1]. His goal was to develop the ability to predict sediment transport in real rivers.
+Einstein recognized that individual grains within the stream moved in an alternating sequence of motion and rest periods, and he attempted to characterize the distance of individual motions and the duration of individual rests.</description>
+    </item>
+    
+  </channel>
+</rss>
