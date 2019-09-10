@@ -28,5 +28,5 @@ footnotereturnlinkcontents = "↩"
 
 [params]
     description = "James Kevin Pierce"
-    footer = "[UBC](https://www.geog.ubc.ca/persons/kevin-pierce/) | [Github](https://github.com/jk-pierce) | [Twitter](https://twitter.com/j_k_pierce)"
+    footer = "[UBC](https://www.geog.ubc.ca/persons/kevin-pierce/) | [Github](https://github.com/jk-pierce) | [Twitter](https://twitter.com/j_k_pierce) | [Stack-Overflow](https://stackoverflow.com/users/7247547/kevinkayaks?tab=profile)"
     custom_css = ["css/theme-override.css"]
