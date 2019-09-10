@@ -1,0 +1,32 @@
+baseurl = "/"
+languageCode = "en-us"
+title = "JKP"
+theme = "hugo-classic"
+googleAnalytics = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+enableEmoji = true
+footnotereturnlinkcontents = "↩"
+
+[permalinks]
+    post = "/post/:year/:month/:day/:slug/"
+
+#[[menu.main]]
+#    name = "Home"
+#    url = "/"
+#    weight = 1
+[[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 2
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+[[menu.feed]]
+    name = "contact"
+    url = "mailto:james.kevin.pierce@gmail.com"
+
+[params]
+    description = "James Kevin Pierce"
+    footer = "[UBC](https://www.geog.ubc.ca/persons/kevin-pierce/) | [Github](https://github.com/jk-pierce) | [Twitter](https://twitter.com/j_k_pierce)"
+    custom_css = ["css/theme-override.css"]
