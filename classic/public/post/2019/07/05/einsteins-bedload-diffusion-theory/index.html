@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Einstein&#39;s bedload diffusion theory | JKP</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <link rel="stylesheet" href="/css/theme-override.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.css" integrity="sha384-D+9gmBxUQogRLqvARvNLmA9hS2x//eK1FhVb9PiU86gmcrBrJAQT8okdJ4LMp2uv" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/katex.min.js" integrity="sha384-483A6DwYfKeDa0Q52fJmxFXkcPCFfnXMoXblOkJ4JcA8zATN6Tm78UNL72AKk+0O" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-yACMu8JWxKzSp/C1YV86pzGiQ/l1YUfE8oPuahJQxzehAjEt2GiQuy/BIvl9KyeF" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body);
+        });
+    </script>
+
+<header>
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <nav>
+    <ul>
+      
+      
+      <li class="pull-left ">
+        <a href="/">/home/jkp</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/categories/">~/categories</a>
+      </li>
+      
+      
+      <li class="pull-left ">
+        <a href="/tags/">~/tags</a>
+      </li>
+      
+
+      
+      
+      <li class="pull-right">
+        <a href="mailto:james.kevin.pierce@gmail.com">~/contact</a>
+      </li>
+      
+
+    </ul>
+  </nav>
+</header>
+
+  </head>
+
+  <body>
+    <br/>
+
+<div class="article-meta">
+<h1><span class="title">Einstein&rsquo;s bedload diffusion theory</span></h1>
+<h2 class="author">JKP</h2>
+<h2 class="date">2019/07/05</h2>
+<p class="terms">
+  
+  
+  Categories: <a href="/categories/bedload-transport">bedload transport</a> <a href="/categories/stochastic-modeling">stochastic modeling</a> 
+  
+  
+  
+  Tags: <a href="/tags/science">Science</a> 
+  
+  
+</p>
+</div>
+
+
+
+<main>
+
+
+<p>Hans Albert Einstein was a civil engineer and the son of Albert Einstein, the famous physicist.
+In his PhD work before 1937, he performed a series of experiments tracking painted sediment through a model river [1].
+His was to understand sediment transport in real rivers.</p>
+
+<p>Einstein recognized that individual grains within the stream move in an alternating sequence of motion and rest periods, and he attempted to characterize the distance of individual motions and the duration of individual rests.
+During his experiments, he realized these characteristics were not predictable, so he considered them to be statistical quantities, eventually characterizing the step length and resting time with exponential distributions:
+$$ \psi_1(t) = k_1 e^{-k_1 t} $$
+$$ \psi_2( r) = k_2 e^{-k_2 r}$$
+In these equations, \(1/k_1\) represents the mean rest period, and \(1/k_2\) represents the mean step length.
+A typical trajectory of a grain moving downstream can be modelled like this, according to Einstein:</p>
+
+<p><img src="/ein1.png" alt="&quot;Einstein Trajectory&quot;" /></p>
+
+<p>Armed with this stochastic concept of bedload motion, Einstein set out to compute the probability density \(p(r,t)\) to find a grain at position \(r\) at after time \(t\), provided it started at \(r=0\) and \(t=0\).
+Einstein&rsquo;s original derivation is clear, but it appears somewhat clumsy from the standpoint of contemporary stochastic physics.
+In the spirit of physical random walks [2,3], we can write \(P(r,t)\) more efficiently as a convolution integral over all previous positions:
+$$ p(r,t) =  \delta( r)e^{-k_1 t} + \int_0^r dr^\prime \int_0^t dt^\prime \psi_1(t^\prime)\psi_2(r^\prime)p(r-r^\prime,t-t^\prime).$$
+The first term in this equation represents the possibility that a grain has never moved from its initial position by the time \(t\), while the second term represents the possibility that a grain arrived at the position \(r\) after a step of length \(r^\prime\) and a rest of time \(t^\prime\).</p>
+
+<p>To solve this integral equation for \(p(r,t)\), we can use the Laplace transform method, mapping the problem to an alternate space in which the convolution structure is unravelled.
+Using the double Laplace transform \( \tilde{p}(\eta,s) = \int_0^\infty dx \int_0^\infty dt e^{-\eta x - s t}p(x,t)\) in this equation provides
+$$ \tilde{p}(\eta,s) = \frac{1}{s+\frac{k_1\eta}{k_2+\eta}}.$$</p>
+
+<p>There are many ways to solve this equation to arrive at \(p( r, t)\).
+One that I haven&rsquo;t seen in the literature yet is to multiply both sides by \( s+\frac{k_1\eta}{k_2+\eta} \) and invert the Laplace transforms, taking account of the property that division in Laplace space is equivalent to differentiation in the original space.
+This provides an asymmetric diffusion equation:
+$$[k_1\partial_r + k_2 \partial_t + \partial_r \partial_t ]p( r,t) = 0,$$
+which has the solution (obtained by the Frobenius method)
+$$ p( r,t ) = e^{-k_1 t -k_2 r}[ \sqrt{\frac{k_1 k_2 t}{ r}} I_1( 2\sqrt{k_1k_2 r t}) + \delta( r) ] , $$
+identical to Einstein&rsquo;s original result [1].</p>
+
+<p>Recently, I used this approach, which is more closely rooted in contemporary stochastic physics methods than Einstein&rsquo;s original approach, to generalize his theory to include the possibility that sediment can become buried within the sedimentary bed for relatively long periods during the course of its downstream transport.
+Ultimately, I derived three stages of bedload diffusion, where the rate at which tagged grains spread apart can have three distinct values depending on the timescale of observation.
+This work is submitted to Geophysical Research Letters and I should hear back from the peer review soon.</p>
+
+<h2 id="references">References</h2>
+
+<ol>
+<li><p>Einstein, H. (1937). Der Geschiebebetrieb als Wahrscheinlichkeitsproblem, Verlag Rascher, Zurich (Engl. trans.: in: Shen, H. (Ed.), 1972. Sedimentation. Symp. to Honor H.A. Einstein. H.W. Shen, Fort Collins, CO).</p></li>
+
+<li><p>Montroll, E.W., &amp; Weiss, G.H. (1965). Random Walks on Lattices. II. <em>Journal of Mathematical Physics</em>, 6, 167-181.</p></li>
+
+<li><p>Weiss, G.H. (1994). <em>Aspects and Applications of the Random Walk</em>. Amsterdam; North Holland.</p></li>
+
+<li><p>Cox, D., &amp; Miller, H. (1965). <em>The Theory of Stochastic Processes</em>. London; Chapman and Hall.</p></li>
+</ol>
+
+</main>
+
+    <footer>
+      
+<script>
+(function() {
+  function center_el(tagName) {
+    var tags = document.getElementsByTagName(tagName), i, tag;
+    for (i = 0; i < tags.length; i++) {
+      tag = tags[i];
+      var parent = tag.parentElement;
+      
+      if (parent.childNodes.length === 1) {
+        
+        if (parent.nodeName === 'A') {
+          parent = parent.parentElement;
+          if (parent.childNodes.length != 1) continue;
+        }
+        if (parent.nodeName === 'P') parent.style.textAlign = 'center';
+      }
+    }
+  }
+  var tagNames = ['img', 'embed', 'object'];
+  for (var i = 0; i < tagNames.length; i++) {
+    center_el(tagNames[i]);
+  }
+})();
+</script>
+
+      
+      <hr/>
+      <a href="https://www.geog.ubc.ca/persons/kevin-pierce/">UBC</a> | <a href="https://github.com/jk-pierce">Github</a> | <a href="https://twitter.com/j_k_pierce">Twitter</a>
+      
+    </footer>
+  </body>
+</html>
+

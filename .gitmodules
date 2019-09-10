@@ -1,1 +1,7 @@
-
+[submodule "hugo-classic"]
+	path = classic/themes/hugo-classic
+	url = https://github.com/goodroot/hugo-classic/
+[submodule "public"]
+	path = public
+	url = git@github.com:jkpierce/jkpierce.github.io.git
+	branch = master
